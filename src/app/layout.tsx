@@ -18,8 +18,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <ClerkProvider>
@@ -28,7 +30,11 @@ export default function RootLayout({
         <body className={`font-mono ${inter.className} dark`}>
           <div className="grid h-screen grid-rows-[auto,1fr]">
             <TopNav />
-            <main className="overflow-y-scroll">{children}</main>
+            <main className="overflow-y-scroll">
+              {children}
+              {modal}
+              <div id="modal-root" />
+            </main>
           </div>
           <div id="modal-root" />
         </body>

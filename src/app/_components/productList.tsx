@@ -1,5 +1,6 @@
 import { getProducts } from "@/server/db/queries";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function ProductList() {
   const products = await getProducts();
@@ -15,14 +16,16 @@ export default async function ProductList() {
             key={product.id}
             className="bg-gray-300 rounded-lg shadow-md overflow-hidden"
           >
-            <Image
-              src={product.image}
-              style={{ objectFit: "fill" }}
-              width={192}
-              height={192}
-              alt={product.title}
-              className="w-full h-48 object-cover"
-            />
+            <Link href={`/product/${product.id}`}>
+              <Image
+                src={product.image}
+                style={{ objectFit: "fill" }}
+                width={192}
+                height={192}
+                alt={product.title}
+                className="w-full h-48 object-cover"
+              />
+            </Link>
             <div className="p-4">
               <h2 className="text-xl text-gray-700 font-semibold mb-2">
                 {product.title}

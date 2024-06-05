@@ -14,12 +14,16 @@ export function TopNav() {
           <SignInButton />
         </SignedOut>
         <SignedIn>
-          <UploadButton
-            endpoint="imageUploader"
-            onClientUploadComplete={() => {
-              router.refresh();
-            }}
-          />
+          <div className="flex items-center gap-2">
+            <span className="text-gray-600">Add product:</span>
+            <UploadButton
+              endpoint="imageUploader"
+              onClientUploadComplete={() => {
+                router.refresh();
+              }}
+              className="text-white font-medium py-1 px-3 rounded hover:bg-blue-600 transition duration-200"
+            />
+          </div>
           <UserButton />
         </SignedIn>
       </div>
