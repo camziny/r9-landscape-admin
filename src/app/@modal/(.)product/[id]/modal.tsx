@@ -21,7 +21,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
   return createPortal(
     <dialog
       ref={dialogRef}
-      className="absolute h-screen w-screen bg-black/60"
+      className="absolute h-screen w-screen bg-black/60 text-gray-800"
       onClose={onDismiss}
     >
       {children}
