@@ -35,8 +35,8 @@ export const ourFileRouter = {
     })
     .onUploadComplete(async ({ metadata, file }) => {
       await db.insert(products).values({
-        title: file.name,
-        description: "",
+        title: "Product Name",
+        description: "Product Description",
         image: file.url,
         userId: metadata.userId,
       });
