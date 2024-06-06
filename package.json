@@ -17,9 +17,11 @@
     "drizzle-orm": "^0.31.1",
     "lucide-react": "^0.387.0",
     "next": "14.2.3",
+    "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
     "server-only": "^0.0.1",
+    "sonner": "^1.4.41",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "uploadthing": "^6.12.0"
