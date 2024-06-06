@@ -7,7 +7,7 @@ import { SimpleUploadButton } from "./simpleUploadButton";
 export function TopNav() {
   const router = useRouter();
   return (
-    <nav className="flex w-full items-center justify-between border-b p-4 text-xl font-semibold">
+    <nav className="flex w-full items-center justify-between border-b p-4 text-xl font-semibold bg-slate-900">
       <div>Products</div>
 
       <div className="flex flex-row items-center gap-4">
