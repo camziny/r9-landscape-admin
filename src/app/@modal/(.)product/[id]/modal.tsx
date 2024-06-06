@@ -24,6 +24,12 @@ export function Modal({ children }: { children: React.ReactNode }) {
       className="absolute h-screen w-screen bg-black/60 text-gray-800"
       onClose={onDismiss}
     >
+      <button
+        onClick={onDismiss}
+        className="absolute top-3 right-3 text-gray-500 text-xl hover:text-gray-800"
+      >
+        &times;
+      </button>
       {children}
       {/* <button onClick={onDismiss} className="close-button" /> */}
     </dialog>,

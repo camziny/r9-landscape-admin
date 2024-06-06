@@ -1,5 +1,9 @@
 import "server-only";
 import { db } from "./schema";
+import { auth } from "@clerk/nextjs/server";
+import { products } from "./schema";
+import { and, eq } from "drizzle-orm";
+import { redirect } from "next/navigation";
 
 export async function getProducts() {
   const products = await db.query.products.findMany({
@@ -15,4 +19,34 @@ export async function getProduct(id: number) {
   if (!product) throw new Error("Image not found");
 
   return product;
+}
+
+export async function deleteProduct(id: number) {
+  const user = auth();
+  if (!user.userId) throw new Error("Unauthorized");
+
+  await db
+    .delete(products)
+    .where(and(eq(products.id, id), eq(products.userId, user.userId)));
+
+  redirect("/");
+}
+
+export async function updateProduct(
+  id: number,
+  newTitle: string,
+  newDescription: string
+) {
+  const user = auth();
+  if (!user.userId) throw new Error("Unauthorized");
+
+  await db
+    .update(products)
+    .set({
+      title: newTitle,
+      description: newDescription,
+    })
+    .where(and(eq(products.id, id), eq(products.userId, user.userId)));
+
+  redirect("/");
 }
